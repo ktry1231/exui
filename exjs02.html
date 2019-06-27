@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JS BRANCH and LOOP</title>
+    <style>
+    td {
+        border: 1px solid black;
+    }
+    table{
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+    </style>
 </head>
 <body>
     <h1>1</h1>
@@ -161,24 +170,23 @@
 
         var dansel = document.querySelector('#dan');
         var outBtn = document.querySelector('#outBtn');
-        var out = document.querySelector('#out');
+        var outDiv = document.querySelector('#out');
 
         outBtn.onclick = function() {
-            var dan = dansel.value;
-            var msg = '';
-            switch (dansel) {
-                case '2': msg = '2단'; break;
-                case '3': msg = '3단'; break;
-                case '4': msg = '4단'; break;;
-                case '5': msg = '5단'; break;
-                case '6': msg = '6단'; break;
-                case '7': msg = '7단'; break;
-                case '8': msg = '8단'; break;
-                case '9': msg = '9단'; break;
-                default: break;
+            var dan = Number(dansel.value);
+            var html = '';
+            html = html + '<table>' + '<tbody>';
+            for (var x =2; x <= dan; x++){
+                  html = html + '<tr>';
+                for (var y = 1;  y <=9; y++){
+                    html = html + '<td>' + x + '*' + y + '=' + (x*y) + '</td>';
+                }
+                html = html + '</tr>';                  
             }
-            out.innerHTML = msg;
-        };
+                html = html + '</tabody>' +  '</table>';
+                outDiv.innerHTML = html;
+            };
+        
 
        //6.
        var todoList = document.querySelector('#todos');
@@ -191,6 +199,7 @@
         //todoList.innerHTML +=  '<li>' + todo + '<li>';
          todoIn.value = '';
        };
+
 
 
 
