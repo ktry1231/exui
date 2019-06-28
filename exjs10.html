@@ -66,11 +66,17 @@
             //imgDiv 를 삭제
             // imgDiv.remove(); //IE 미지원
 
-           imgDiv.parentElement.removeChild(imgDiv);
+        //    imgDiv.parentElement.removeChild(imgDiv);
         
          
             //imgDiv 내부의 img 엘리먼트들을 삭제
-            
+            // var imgList = document.querySelectorAll('#imgDiv img');
+            var imgList = imgDiv.querySelectorAll('img');
+            for (var i = 0; i < imgList.length; i++) {
+                var img = imgList[i];
+                img.parentElement.removeChild(img);
+                // imgDiv.removeChild(img);
+            }
         };
     </script>
 </body>
